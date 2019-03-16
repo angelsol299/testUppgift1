@@ -15,11 +15,18 @@
         src="https://www.backpackerguide.nz/wp-content/uploads/2017/10/new-zealand-1882703_1280.jpg"
         alt="newzealand"
       />
-
-      <form>
-        Whats your name <input type="text" name="name" />
-        <button onclick="outputName()">Send</button>
-      </form>
+      <div id="mario">
+        <form id="form1">
+          Whats your name <input type="text" name="name" />
+        </form>
+        <button
+          id="toglee"
+          onclick="this.style.visibility='hidden';[outputName()]"
+        >
+          Send
+        </button>
+      </div>
+      <div id="demo"></div>
     </div>
   </body>
 </html>

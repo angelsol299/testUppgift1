@@ -25,15 +25,15 @@ body {
   z-index: 100%;
 }
 
-/* animation off 2 seconds
-#hideMe {
-  -moz-animation: cssAnimation 0s ease-in 2s forwards;
-  /* Firefox */ /*
-  -webkit-animation: cssAnimation 0s ease-in 2s forwards;
-  /* Safari and Chrome */ /*
-  -o-animation: cssAnimation 0s ease-in 2s forwards;
-  /* Opera */ /*
-  animation: cssAnimation 0s ease-in 2s forwards;
+/* animation off 2 seconds */
+#demo {
+  -moz-animation: cssAnimation 0s ease-in 4s forwards;
+  /* Firefox */
+  -webkit-animation: cssAnimation 0s ease-in 8s forwards;
+  /* Safari and Chrome */
+  -o-animation: cssAnimation 0s ease-in 4s forwards;
+  /* Opera */
+  animation: cssAnimation 0s ease-in 4s forwards;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
@@ -50,4 +50,4 @@ body {
     height: 0;
     visibility: hidden;
   }
-} */
+}
