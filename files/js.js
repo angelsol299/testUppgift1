@@ -18,6 +18,10 @@ function outputName() {
   }
 }
 
+const inpKey = "name";
+const input1 = document.getElementById("input1");
+const input1 = document.getElementById("btn1");
+
 // local storage
 
 /*
