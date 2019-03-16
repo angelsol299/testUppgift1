@@ -22,3 +22,13 @@ let options = {
   profession: "teacher",
   sports: ["soccer", "basket", "baseball"]
 };
+
+let str = JSON.stringify(options);
+
+localStorage.setItem("arr2", str);
+
+let original = localStorage.getItem("arr2");
+
+console.log(original);
+let obj = JSON.parse(original);
+console.log(obj);
