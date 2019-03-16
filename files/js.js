@@ -16,3 +16,9 @@ console.log(val);
 
 let key = "vamos_ya";
 localStorage.setItem(key, 239);
+
+let options = {
+  name: "natoion",
+  profession: "teacher",
+  sports: ["soccer", "basket", "baseball"]
+};
