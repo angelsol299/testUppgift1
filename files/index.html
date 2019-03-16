@@ -11,22 +11,26 @@
   <body>
     <div class="div1">
       <img
-        class="image"
+        class="img1"
         src="https://www.backpackerguide.nz/wp-content/uploads/2017/10/new-zealand-1882703_1280.jpg"
         alt="newzealand"
       />
-      <div id="mario">
-        <form id="form1">
-          Whats your name <input type="text" name="name" />
-        </form>
-        <button
-          id="toglee"
-          onclick="this.style.visibility='hidden';[outputName()]"
-        >
-          Send
-        </button>
+      <div id="centerImg">
+        <div id="mario">
+          <form id="form1">
+            <span class="span1">Whats your name?</span><br /><br />
+            <input class="input1" type="text" name="name" />
+          </form>
+
+          <button
+            id="toglee"
+            onclick="this.style.visibility='hidden';[outputName()]"
+          >
+            Send
+          </button>
+          <div class="span1" id="demo"></div>
+        </div>
       </div>
-      <div id="demo"></div>
     </div>
   </body>
 </html>
