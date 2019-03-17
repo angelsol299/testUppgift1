@@ -15,6 +15,12 @@ const outputName = () => {
     z.style.display = "none";
   }
 
+  //opacity
+
+  if ((document.getElementById("demo").style.opacity = 1)) {
+    document.getElementById("demo").style.opacity = 0;
+  }
+
   //send values to localStorage
 
   const input2 = document.getElementById("input2");
@@ -25,7 +31,7 @@ const outputName = () => {
   }
 
   const list = JSON.parse(localStorage.getItem("name"));
-  const exist = false;
+  let exist = false;
   for (var i = 0; i < list.length; i++)
     if (list[i] == value) {
       exist = true;
@@ -35,7 +41,7 @@ const outputName = () => {
     list.push(value);
     document.getElementById("demo").innerHTML = "Welcome " + value;
   } else {
-    alert(value);
+    document.getElementById("demo").innerHTML = "Welcome back " + value;
   }
   localStorage.setItem("name", JSON.stringify(list));
 
@@ -54,6 +60,34 @@ const outputName = () => {
   */
   // }
 };
+
+/*
+const welcom = () => {
+  const input2 = document.getElementById("input2");
+  const value = input2.value;
+
+  if (!localStorage.getItem("name")) {
+    localStorage.setItem("name", "[]");
+  }
+
+  const list = JSON.parse(localStorage.getItem("name"));
+  let exist = false;
+  for (var i = 0; i < list.length; i++)
+    if (list[i] == value) {
+      exist = true;
+      break;
+    }
+  if (!exist) {
+    list.push(value);
+    alert("created");
+  } else {
+    alert("exist");
+  }
+  localStorage.setItem("name", JSON.stringify(list));
+};
+
+//hide button when clicked
+//this.style.visibility='hidden';[welcom()]
 
 /*
 window.onload = () => {
