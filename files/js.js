@@ -1,12 +1,10 @@
 var hidden = false;
 
-function outputName() {
+const outputName = () => {
   // show the value of an element
   var x, name, a, b, answer;
   x = document.getElementById("form1");
   y = x.elements["name"].value;
-
-  document.getElementById("demo").innerHTML = "Welcome " + y;
 
   //hide element
 
@@ -16,11 +14,64 @@ function outputName() {
   } else {
     z.style.display = "none";
   }
-}
 
-const inpKey = "name";
-const input1 = document.getElementById("input1");
-const input1 = document.getElementById("btn1");
+  //send values to localStorage
+
+  const input2 = document.getElementById("input2");
+  const value = input2.value;
+
+  if (!localStorage.getItem("name")) {
+    localStorage.setItem("name", "[]");
+  }
+
+  const list = JSON.parse(localStorage.getItem("name"));
+  const exist = false;
+  for (var i = 0; i < list.length; i++)
+    if (list[i] == value) {
+      exist = true;
+      break;
+    }
+  if (!exist) {
+    list.push(value);
+    document.getElementById("demo").innerHTML = "Welcome " + value;
+  } else {
+    alert(value);
+  }
+  localStorage.setItem("name", JSON.stringify(list));
+
+  /* 
+  console.log(value);
+  let itemsArray = localStorage.getItem("name")
+    ? JSON.parse(localStorage.getItem("name"))
+    : [];
+
+  //if (value) {
+
+  itemsArray.push(value);
+  localStorage.setItem("name", JSON.stringify(itemsArray));
+
+  document.getElementById("demo").innerHTML = "Welcome " + y;
+  */
+  // }
+};
+
+/*
+window.onload = () => {
+  if (document.cookie.length != 0) {
+    const nameValueArray = document.cookie.split("=");
+    document.bgColor = nameValueArray[1];
+    document.getElementById("add1Theme").value = nameValueArray[1];
+  }
+};
+
+const setColorCookie = () => {
+  document.cookie = "name=" + document.getElementById("input2").value;
+
+  const nameValueArray = document.cookie.split("=");
+  const customObject = (JSON.parse = nameValueArray[1]);
+
+  document.getElementById("p1").value = customObject.name;
+};
 
 // local storage
 

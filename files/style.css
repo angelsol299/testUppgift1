@@ -3,6 +3,10 @@ body {
   width: 100%;
 }
 
+#p1 {
+  color: white;
+}
+
 .div1 {
   position: relative;
   float: left;
