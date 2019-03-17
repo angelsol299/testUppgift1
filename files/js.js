@@ -1,8 +1,8 @@
-var hidden = false;
+//let hidden = false;
 
 const outputName = () => {
   // show the value of an element
-  var x, name, a, b, answer;
+  let x;
   x = document.getElementById("form1");
   y = x.elements["name"].value;
 
@@ -15,10 +15,10 @@ const outputName = () => {
     z.style.display = "none";
   }
 
-  //opacity
+  //opacity animation
 
-  if ((document.getElementById("demo").style.opacity = 1)) {
-    document.getElementById("demo").style.opacity = 0;
+  if ((document.getElementById("headerId").style.opacity = 1)) {
+    document.getElementById("headerId").style.opacity = 0;
   }
 
   //send values to localStorage
@@ -30,63 +30,37 @@ const outputName = () => {
     localStorage.setItem("name", "[]");
   }
 
-  const list = JSON.parse(localStorage.getItem("name"));
+  const listNames = JSON.parse(localStorage.getItem("name"));
   let exist = false;
-  for (var i = 0; i < list.length; i++)
-    if (list[i] == value) {
+  for (var i = 0; i < listNames.length; i++)
+    if (listNames[i] == value) {
       exist = true;
       break;
     }
+
+  //verify if the name is already saved on local storage and output a result
   if (!exist) {
-    list.push(value);
-    document.getElementById("demo").innerHTML = "Welcome " + value;
-  } else {
-    document.getElementById("demo").innerHTML = "Welcome back " + value;
+    listNames.push(value);
+    document.getElementById("headerId").innerHTML =
+      "Hello " + value + "," + " Welcome to this site";
+  } else if (exist) {
+    document.getElementById("headerId").innerHTML = "Welcome back " + value;
   }
-  localStorage.setItem("name", JSON.stringify(list));
-};
+  localStorage.setItem("name", JSON.stringify(listNames));
 
-const fetachData = () => {
-  cookie_header = document.getElementById("cookie_data");
-  fetch("/fetchthis", { method: "POST", credentials: "same-origin" })
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(json_data) {
-      cookie_header.innerHTML = json_data.output;
-    });
-};
+  let setCookie = document.getElementById("input2").value;
 
-window.onload = () => {
-  if (document.cookie.length != 0) {
-    const nameValueArray = document.cookie.split("=");
-    document.bgColor = nameValueArray[1];
-    document.getElementById("add1Theme").value = nameValueArray[1];
-  }
-};
-
-const setColorCookie = () => {
-  const selectedColor = document.getElementById("dd1Theme").value;
-
-  if (selectedColor != "Select Color") {
-    document.gbColor = selectedColor;
-    document.cookie =
-      "color=" + selectedColor + ";expires=Fri, 18 mar 2019 03:00:00 UTC;";
-  }
+  document.cookie =
+    "name=" + setCookie + ";expires=Fri, 18 mar 2019 13:00:00 UTC;";
 };
 
 /*
-
-document.cookie = "name=" + document.getElementById("input2").value;
-
-  const nameValueArray = document.cookie.split("=");
-  const customObject = (JSON.parse = nameValueArray[1]);
-
-  document.getElementById("p1").value = customObject.name;
-
-   const nameValueArray = document.cookie.split("=");
-  const customObject = (JSON.parse = nameValueArray[1]);
-
-  document.getElementById("p1").value = customObject.name;
-
-  */
+window.onload = function(event) {
+  if (document.cookie.length != 0) {
+    let nameValueArray = document.cookie.split("=");
+    let customObject = (JSON.parse = nameValueArray[1]);
+    var out = document.getElementById("p1");
+    out.innerHTML = "welcome back " + customObject;
+  }
+};
+*/
