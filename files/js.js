@@ -44,11 +44,19 @@ const outputName = () => {
     document.getElementById("demo").innerHTML = "Welcome back " + value;
   }
   localStorage.setItem("name", JSON.stringify(list));
-
 };
 
+const fetachData = () => {
+  cookie_header = document.getElementById("cookie_data");
+  fetch("/fetchthis", { method: "POST", credentials: "same-origin" })
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(json_data) {
+      cookie_header.innerHTML = json_data.output;
+    });
+};
 
-/*
 window.onload = () => {
   if (document.cookie.length != 0) {
     const nameValueArray = document.cookie.split("=");
@@ -58,10 +66,27 @@ window.onload = () => {
 };
 
 const setColorCookie = () => {
-  document.cookie = "name=" + document.getElementById("input2").value;
+  const selectedColor = document.getElementById("dd1Theme").value;
+
+  if (selectedColor != "Select Color") {
+    document.gbColor = selectedColor;
+    document.cookie =
+      "color=" + selectedColor + ";expires=Fri, 18 mar 2019 03:00:00 UTC;";
+  }
+};
+
+/*
+
+document.cookie = "name=" + document.getElementById("input2").value;
 
   const nameValueArray = document.cookie.split("=");
   const customObject = (JSON.parse = nameValueArray[1]);
 
   document.getElementById("p1").value = customObject.name;
-};
+
+   const nameValueArray = document.cookie.split("=");
+  const customObject = (JSON.parse = nameValueArray[1]);
+
+  document.getElementById("p1").value = customObject.name;
+
+  */
